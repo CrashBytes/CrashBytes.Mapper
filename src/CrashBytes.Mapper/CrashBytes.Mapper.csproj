@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>CrashBytes.Mapper</RootNamespace>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>CrashBytes.Mapper</PackageId>
+    <Authors>CrashBytes</Authors>
+    <Company>CrashBytes</Company>
+    <Copyright>Copyright (c) 2026 CrashBytes</Copyright>
+    <Description>Source-generator-first object mapper for .NET — a lightweight, MIT-licensed mapping library.</Description>
+    <PackageTags>mapper;mapping;source-generator;object-mapping;dto</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/CrashBytes/CrashBytes.Mapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CrashBytes/CrashBytes.Mapper</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Symbol packages for source debugging -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="5.*" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
