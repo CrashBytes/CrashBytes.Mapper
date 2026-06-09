@@ -10,6 +10,10 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write   # OIDC token for NuGet Trusted Publishing
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,10 +39,15 @@ jobs:
       - name: Pack
         run: dotnet pack --configuration Release --no-build --output ./artifacts
 
+      - name: NuGet login (OIDC -> short-lived API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: CrashBytes
+
       - name: Push to NuGet.org
         run: |
           dotnet nuget push ./artifacts/*.nupkg \
-            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --api-key ${{ steps.login.outputs.NUGET_API_KEY }} \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
-
